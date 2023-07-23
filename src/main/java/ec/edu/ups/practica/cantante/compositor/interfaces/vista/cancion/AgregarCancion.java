@@ -112,7 +112,7 @@ public class AgregarCancion extends javax.swing.JInternalFrame {
             }
         });
 
-        jpanelA.setBackground(new java.awt.Color(102, 204, 0));
+        jpanelA.setBackground(new java.awt.Color(255, 0, 51));
         jpanelA.setBorder(javax.swing.BorderFactory.createTitledBorder("AGREGAR CANCION"));
 
         jblCodigoAgregarCancion.setText("Codigo:");
@@ -190,7 +190,7 @@ public class AgregarCancion extends javax.swing.JInternalFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        jpanelB.setBackground(new java.awt.Color(102, 204, 0));
+        jpanelB.setBackground(new java.awt.Color(255, 0, 51));
         jpanelB.setBorder(javax.swing.BorderFactory.createTitledBorder("BUSCAR COMPOSITOR"));
 
         jblIdAgregarCancion.setText("ID:");

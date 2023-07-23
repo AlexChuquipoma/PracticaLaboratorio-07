@@ -107,10 +107,10 @@ public class ActualizarDisco extends javax.swing.JInternalFrame {
             }
         });
 
-        panelA.setBackground(new java.awt.Color(102, 204, 0));
+        panelA.setBackground(new java.awt.Color(0, 0, 0));
         panelA.setBorder(javax.swing.BorderFactory.createTitledBorder("ACTUALIZAR DISCO"));
 
-        jPanel7.setBackground(new java.awt.Color(102, 204, 0));
+        jPanel7.setBackground(new java.awt.Color(255, 0, 0));
 
         jblIdActualizarDisco.setText("Buscar cantante para encontar disco : ");
 
@@ -299,15 +299,16 @@ public class ActualizarDisco extends javax.swing.JInternalFrame {
         panelALayout.setHorizontalGroup(
             panelALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelALayout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addGap(27, 27, 27)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         panelALayout.setVerticalGroup(
             panelALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelALayout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelALayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

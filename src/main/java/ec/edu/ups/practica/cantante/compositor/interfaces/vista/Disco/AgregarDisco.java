@@ -99,7 +99,7 @@ public class AgregarDisco extends javax.swing.JInternalFrame {
             }
         });
 
-        jpanelA.setBackground(new java.awt.Color(51, 204, 0));
+        jpanelA.setBackground(new java.awt.Color(255, 0, 51));
         jpanelA.setBorder(javax.swing.BorderFactory.createTitledBorder("AGREGAR DISCO"));
 
         jblIdAgregarDisco.setText("Buscar cantante a agregar disco : ");
@@ -351,7 +351,7 @@ public class AgregarDisco extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_bntCancelarActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
+     
     }//GEN-LAST:event_txtNombreActionPerformed
 
     private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing

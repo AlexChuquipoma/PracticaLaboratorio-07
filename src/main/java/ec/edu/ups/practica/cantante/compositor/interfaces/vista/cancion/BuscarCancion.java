@@ -111,7 +111,7 @@ public class BuscarCancion extends javax.swing.JInternalFrame {
             }
         });
 
-        jpanelA.setBackground(new java.awt.Color(51, 153, 0));
+        jpanelA.setBackground(new java.awt.Color(255, 0, 51));
         jpanelA.setBorder(javax.swing.BorderFactory.createTitledBorder("BUSCAR COMPOSITOR"));
 
         jblIdBuscarCancion.setText("ID:");
@@ -189,7 +189,7 @@ public class BuscarCancion extends javax.swing.JInternalFrame {
             }
         });
 
-        jpanelB.setBackground(new java.awt.Color(51, 153, 0));
+        jpanelB.setBackground(new java.awt.Color(255, 0, 51));
         jpanelB.setBorder(javax.swing.BorderFactory.createTitledBorder("BUSCAR CANCION"));
 
         jblCodigoBuscarCancion.setText("Codigo:");

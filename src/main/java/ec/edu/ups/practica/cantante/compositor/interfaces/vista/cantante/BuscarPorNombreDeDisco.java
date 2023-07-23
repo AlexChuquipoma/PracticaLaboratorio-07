@@ -108,7 +108,7 @@ public class BuscarPorNombreDeDisco extends javax.swing.JInternalFrame {
             }
         });
 
-        jpanelA.setBackground(new java.awt.Color(0, 153, 51));
+        jpanelA.setBackground(new java.awt.Color(255, 0, 51));
         jpanelA.setBorder(javax.swing.BorderFactory.createTitledBorder("BUSCAR POR NOMBRE DE DISCO"));
 
         jLabel1.setText("Ingrese el nombre del disco para encontrar al cantante :");
@@ -120,7 +120,8 @@ public class BuscarPorNombreDeDisco extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(51, 153, 0));
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         jblIdBuscarporDisco.setText("ID:");
 

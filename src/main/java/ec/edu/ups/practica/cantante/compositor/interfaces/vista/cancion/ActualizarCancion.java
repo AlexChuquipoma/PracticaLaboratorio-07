@@ -117,10 +117,10 @@ public class ActualizarCancion extends javax.swing.JInternalFrame {
             }
         });
 
-        jpanelA.setBackground(new java.awt.Color(51, 204, 0));
+        jpanelA.setBackground(new java.awt.Color(0, 0, 0));
         jpanelA.setBorder(javax.swing.BorderFactory.createTitledBorder("ACTUALIZAR CANCION"));
 
-        jpanelC.setBackground(new java.awt.Color(102, 153, 0));
+        jpanelC.setBackground(new java.awt.Color(255, 0, 51));
         jpanelC.setBorder(javax.swing.BorderFactory.createTitledBorder("BUSCAR CANCION"));
 
         jblCodigoActualizarCancion.setText("Codigo:");
@@ -256,7 +256,7 @@ public class ActualizarCancion extends javax.swing.JInternalFrame {
                     .addComponent(btnCancelar)))
         );
 
-        jpanelB.setBackground(new java.awt.Color(102, 153, 0));
+        jpanelB.setBackground(new java.awt.Color(255, 0, 51));
         jpanelB.setBorder(javax.swing.BorderFactory.createTitledBorder("BUSCAR COMPOSITOR"));
 
         jblIdActualizarCancion.setText("ID:");

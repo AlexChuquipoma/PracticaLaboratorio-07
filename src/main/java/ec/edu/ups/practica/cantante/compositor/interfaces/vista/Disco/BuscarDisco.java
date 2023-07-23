@@ -102,7 +102,7 @@ public class BuscarDisco extends javax.swing.JInternalFrame {
             }
         });
 
-        jpanelB.setBackground(new java.awt.Color(102, 204, 0));
+        jpanelB.setBackground(new java.awt.Color(255, 0, 51));
         jpanelB.setBorder(javax.swing.BorderFactory.createTitledBorder("BUSCAR DISCO"));
 
         jblIdBuscarDisco.setText("Buscar cantante para encontar disco : ");

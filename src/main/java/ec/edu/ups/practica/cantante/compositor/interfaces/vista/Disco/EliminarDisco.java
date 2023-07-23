@@ -103,7 +103,7 @@ public class EliminarDisco extends javax.swing.JInternalFrame {
             }
         });
 
-        jpanelE.setBackground(new java.awt.Color(51, 204, 0));
+        jpanelE.setBackground(new java.awt.Color(255, 0, 51));
         jpanelE.setBorder(javax.swing.BorderFactory.createTitledBorder("ELIMINAR DISCO"));
 
         jblIdEliminarDisco.setText("Buscar cantante para encontar disco : ");

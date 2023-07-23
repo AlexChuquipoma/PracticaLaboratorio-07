@@ -94,7 +94,7 @@ public class ListarCantante extends javax.swing.JInternalFrame {
             }
         });
 
-        jpanelA.setBackground(new java.awt.Color(51, 153, 0));
+        jpanelA.setBackground(new java.awt.Color(255, 0, 51));
         jpanelA.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "LISTAR CANTANTE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
 
         tblCanatntes.setModel(new javax.swing.table.DefaultTableModel(
