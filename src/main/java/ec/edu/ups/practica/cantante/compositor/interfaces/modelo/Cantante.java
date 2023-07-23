@@ -6,74 +6,80 @@ package ec.edu.ups.practica.cantante.compositor.interfaces.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+
 
 /**
  *
  * @author Usuario
  */
-public class Cantante extends Persona { // Define la clase Cantante, que extiende de la clase Persona
+public class Cantante extends Persona { 
 
-    private String nombreArtistico; // Define el nombre artistico del cantante
-    private String generoMusical; // Define el género musical del cantante
-    private int numeroDeSencillos; // Define el número de sencillos que ha lanzado el cantante
-    private int numeroDeConciertos; // Define el número de conciertos que ha dado el cantante
-    private int numeroDeGiras; // Define el número de giras que ha realizado el cantante
-    private List<Disco> discografia; // Define la discografía del cantante, que es una lista de objetos de la clase Disco
+    private String nombreArtistico; 
+    private String generoMusical; 
+    private int numeroDeSencillos; 
+    private int numeroDeConciertos; 
+    private int numeroDeGiras;
+    private List<Disco> discografia; 
 
-    public Cantante() { // Constructor por defecto de la clase Cantante
-        discografia = new ArrayList(); // Inicializa la lista de discos del cantante
+    // Constructor vacío
+    public Cantante() { 
+        discografia = new ArrayList(); 
     }
-
+    
+    // Constructor que acepta el nombre artístico del cantante
     public Cantante(String nombreArtistico) {
         this.nombreArtistico = nombreArtistico;
     }
 
-    
-    
+    // Constructor que invoca al constructor de la clase Persona para inicializar los atributos heredados
+
     public Cantante(int codigo, String nombre, String apellido, int edad, String nacionalidad) {
         super(codigo, nombre, apellido, edad, nacionalidad);
     }
 
+    // Constructor que invoca al constructor de la clase Persona para inicializar los atributos heredados
+    // y también inicializa los atributos propios del cantante.
     
-    
-    public Cantante(String nombreArtistico, String generoMusical, int numeroDeSencillos, int numeroDeConciertos, int numeroDeGiras,  int codigo, String nombre, String apellido, int edad, String nacionalidad, double salario) { // Constructor personalizado de la clase Cantante
-        super(codigo, nombre, apellido, edad, nacionalidad, salario); // Invoca al constructor de la clase Persona con los parámetros correspondientes
-        this.nombreArtistico = nombreArtistico; // Asigna el nombre artistico del cantante
-        this.generoMusical = generoMusical; // Asigna el género musical del cantante
-        this.numeroDeSencillos = numeroDeSencillos; // Asigna el número de sencillos del cantante
-        this.numeroDeConciertos = numeroDeConciertos; // Asigna el número de conciertos del cantante
-        this.numeroDeGiras = numeroDeGiras; // Asigna el número de giras del cantante
+    public Cantante(String nombreArtistico, String generoMusical, int numeroDeSencillos, int numeroDeConciertos, int numeroDeGiras,  int codigo, String nombre, String apellido, int edad, String nacionalidad, double salario) { 
+        super(codigo, nombre, apellido, edad, nacionalidad, salario); 
+        this.nombreArtistico = nombreArtistico; 
+        this.generoMusical = generoMusical; 
+        this.numeroDeSencillos = numeroDeSencillos; 
+        this.numeroDeConciertos = numeroDeConciertos; 
+        this.numeroDeGiras = numeroDeGiras; 
         discografia = new ArrayList();
     }
- 
+    
+    // Método para calcular el salario del cantante según ciertas condiciones
     @Override
-    public double calcularSalario() { // Sobrescribe el método calcularSalario de la clase Persona
-        double salarioFinal = getSalario(); // Obtiene el salario del cantante y lo asigna a una variable auxiliar
+    public double calcularSalario() { 
+        double salarioFinal = getSalario();
 
-        if (numeroDeSencillos > 10 && numeroDeGiras > 3) { // Si el cantante ha lanzado más de 10 sencillos y ha realizado más de 3 giras
-            int comision = 1000; // Se asigna una comisión de 1000
-            salarioFinal += comision; // Se le agrega la comisión al salario final
+        if (numeroDeSencillos > 10 && numeroDeGiras > 3) { 
+            int comision = 1000; 
+            salarioFinal += comision; 
         }
-        if (numeroDeSencillos >= 1 && numeroDeSencillos <= 10) { // Si el cantante ha lanzado entre 1 y 10 sencillos
-            double f = salarioFinal * 0.05; // Se calcula el 5% del salario final
-            salarioFinal += f; // Se le agrega el 5% al salario final
+        if (numeroDeSencillos >= 1 && numeroDeSencillos <= 10) { 
+            double f = salarioFinal * 0.05; 
+            salarioFinal += f; 
         }
-        if (numeroDeGiras >= 1 && numeroDeGiras <= 3) { // Si el cantante ha realizado entre 1 y 3 giras
-            double g = salarioFinal * 0.03; // Se calcula el 3% del salario final
-            salarioFinal += g; // Se le agrega el 3%
+        if (numeroDeGiras >= 1 && numeroDeGiras <= 3) { 
+            double g = salarioFinal * 0.03; 
+            salarioFinal += g; 
         }
         if (discografia.size() >= 5) {
-            int bono = 2000; // Se asigna un bono de 2000
-            salarioFinal += bono; // Se agrega el bono
+            int bono = 2000; 
+            salarioFinal += bono; 
         }
-        return salarioFinal; //Retorna el salarioFinal 
+        return salarioFinal; 
     }
 
-    
+    // Método para agregar un objeto Disco a la lista discografia
     public void agregarDisco(Disco discografi){
-        discografia.add(discografi); // Se agrega el objeto creado a la lista "discografia".
+        discografia.add(discografi); 
     }
+    // Método para buscar un disco en la lista discografia según su código
+    
     public Disco buscarDisco(int codigo){
         for (Disco disco : discografia) {
             if (disco.getCodigo()== codigo) {
@@ -83,9 +89,13 @@ public class Cantante extends Persona { // Define la clase Cantante, que extiend
         return null;
     }
     
+    // Método para obtener la lista completa de discos del cantante
+    
     public List<Disco> listarDiscos(){
         return discografia;
     }
+    // Método para actualizar un disco en la lista discografia según su código
+    
     public void actualizarDisco(Disco discoActualizado) {
         for (Disco disco : discografia) {
             if (disco.getCodigo() == discoActualizado.getCodigo()) {
@@ -97,7 +107,8 @@ public class Cantante extends Persona { // Define la clase Cantante, que extiend
         }
         System.out.println("El disco no se encontró en la lista.");
     }
-
+   // Método para eliminar un disco de la lista discografia según su código
+    
     public void eliminarDisco(int codigoDisco) {
         Disco discoAEliminar = null;
         for (Disco disco : discografia) {
@@ -114,55 +125,57 @@ public class Cantante extends Persona { // Define la clase Cantante, que extiend
             System.out.println("El disco con el código especificado no se encontró en la discografía.");
         }
     }
+    // Métodos "get" y "set" para cada atributo
     
     public String getNombreArtistico() {
-        return nombreArtistico; // Se retorna el valor de la variable "nombreArtistico".
+        return nombreArtistico; 
     }
 
     public void setNombreArtistico(String nombreArtistico) {
-        this.nombreArtistico = nombreArtistico; // Se asigna el valor del argumento a la variable "nombreArtistico".
+        this.nombreArtistico = nombreArtistico; 
     }
 
     public String getGeneroMusical() {
-        return generoMusical; // Se retorna el valor de la variable "generoMusical".
+        return generoMusical; 
     }
 
     public void setGeneroMusical(String generoMusical) {
-        this.generoMusical = generoMusical; // Se asigna el valor del argumento a la variable "generoMusical".
+        this.generoMusical = generoMusical; 
     }
 
     public int getNumeroDeSencillos() {
-        return numeroDeSencillos; // Se retorna el valor de la variable "numeroDeSencillos".
+        return numeroDeSencillos; 
     }
 
     public void setNumeroDeSencillos(int numeroDeSencillos) {
-        this.numeroDeSencillos = numeroDeSencillos; // Se asigna el valor del argumento a la variable "numeroDeSencillos".
+        this.numeroDeSencillos = numeroDeSencillos; 
     }
 
     public int getNumeroDeConciertos() {
-        return numeroDeConciertos; // Se retorna el valor de la variable "numeroDeConciertos".
+        return numeroDeConciertos; 
     }
 
     public void setNumeroDeConciertos(int numeroDeConciertos) {
-        this.numeroDeConciertos = numeroDeConciertos; // Se asigna el valor del argumento a la variable "numeroDeConciertos".
+        this.numeroDeConciertos = numeroDeConciertos; 
     }
 
     public int getNumeroDeGiras() {
-        return numeroDeGiras; // Se retorna el valor de la variable "numeroDeGiras".
+        return numeroDeGiras; 
     }
 
     public void setNumeroDeGiras(int numeroDeGiras) {
-        this.numeroDeGiras = numeroDeGiras; // Se asigna el valor del argumento a la variable "numeroDeGiras".
+        this.numeroDeGiras = numeroDeGiras; 
     }
 
     public List<Disco> getDiscos() {
-        return discografia; // Se retorna la lista "discografia".
+        return discografia; 
     }
 
     public void setDiscos(List<Disco> discos) {
-        this.discografia = discos; // Se asigna la lista pasada como argumento a la variable "discografia".
+        this.discografia = discos; 
     }
 
+    // Método toString() para representar el objeto Cantante como una cadena
     
     @Override
     public String toString() {

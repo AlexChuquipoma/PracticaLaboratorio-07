@@ -11,74 +11,87 @@ import java.util.Objects;
  * @author Usuario
  */
 public class Disco {
-    private int codigo; // variable de instancia privada para el código del disco
-    private String nombre; // variable de instancia privada para el nombre del disco
-    private int anioDeLanzamiento; // variable de instancia privada para el año de lanzamiento del disco
-
+    private int codigo; 
+    private String nombre; 
+    private int anioDeLanzamiento; 
+    
+     // Constructor vacío
     public Disco() {
-        // constructor por defecto sin parámetros
+        
     }
+    
+    // Constructor que acepta el código, nombre y año de lanzamiento del disco
     
     public Disco(int codigo, String nombre, int anioDeLanzamiento) {
-        this.codigo = codigo; // asigna el código del disco a la variable de instancia correspondiente
-        this.nombre = nombre; // asigna el nombre del disco a la variable de instancia correspondiente
-        this.anioDeLanzamiento = anioDeLanzamiento; // asigna el año de lanzamiento del disco a la variable de instancia correspondiente
+        this.codigo = codigo; 
+        this.nombre = nombre; 
+        this.anioDeLanzamiento = anioDeLanzamiento; 
     }
-
+    // Método para obtener el código del disco
     public int getCodigo() {
-        return codigo; // retorna el código del disco
+        return codigo; 
     }
-
+    // Método para establecer el código del disco
+    
     public void setCodigo(int codigo) {
-        this.codigo = codigo; // asigna el código del disco a la variable de instancia correspondiente
+        this.codigo = codigo; 
     }
-
+     // Método para obtener el nombre del disco
+    
     public String getNombre() {
-        return nombre; // retorna el nombre del disco
+        return nombre; 
     }
-
+    // Método para establecer el nombre del disco
+    
     public void setNombre(String nombre) {
-        this.nombre = nombre; // asigna el nombre del disco a la variable de instancia correspondiente
+        this.nombre = nombre;
     }
+     // Método para obtener el año de lanzamiento del disco
 
     public int getAnioDeLanzamiento() {
-        return anioDeLanzamiento; // retorna el año de lanzamiento del disco
+        return anioDeLanzamiento; 
     }
-
+    // Método para establecer el año de lanzamiento del disco
+    
     public void setAnioDeLanzamiento(int anioDeLanzamiento) {
-        this.anioDeLanzamiento = anioDeLanzamiento; // asigna el año de lanzamiento del disco a la variable de instancia correspondiente
+        this.anioDeLanzamiento = anioDeLanzamiento; 
     }
     
     
-
+    // Método hashCode para generar un valor hash único para el objeto basado en su nombre
+    
+    
     @Override
     public int hashCode() {
-        int hash = 7; // se inicializa una variable hash con un valor 7
-        hash = 29 * hash + Objects.hashCode(this.nombre); // se aplica una función hash al nombre del disco y se multiplica por 29
-        return hash; // retorna el valor resultante
+        int hash = 7; 
+        hash = 29 * hash + Objects.hashCode(this.nombre); 
+        return hash; 
     }
-
+    // Método equals para comparar si dos objetos Disco son iguales basados en su nombre
+    
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) { // si los objetos son iguales, retorna verdadero
+        if (this == obj) { 
             return true;
         }
-        if (obj == null) { // si el objeto es nulo, retorna falso
+        if (obj == null) { 
             return false;
         }
-        if (getClass() != obj.getClass()) { // si las clases no son iguales, retorna falso
+        if (getClass() != obj.getClass()) { 
             return false;
         }
-        final Disco other = (Disco) obj; // se castea el objeto como Disco
-        if (Objects.equals(this.nombre, other.nombre)){ // si los nombres de los discos son iguales, retorna falso
+        final Disco other = (Disco) obj; 
+        if (Objects.equals(this.nombre, other.nombre)){ 
             return false;
         }
-        return true; // retorna verdadero si no se cumple ninguna de las condiciones anteriores
+        return true;
     }
+    // Método toString para representar el objeto Disco como una cadena
+    
 
     @Override
     public String toString() {
-        return "\nDisco: " + "Codigo: " + codigo + "Nombre: " + nombre + "AnioDeLanzamiento: " + anioDeLanzamiento + '}'; // retorna una cadena de caracteres con la información del disco
+        return "\nDisco: " + "Codigo: " + codigo + "Nombre: " + nombre + "AnioDeLanzamiento: " + anioDeLanzamiento + '}'; 
     }
 }
 

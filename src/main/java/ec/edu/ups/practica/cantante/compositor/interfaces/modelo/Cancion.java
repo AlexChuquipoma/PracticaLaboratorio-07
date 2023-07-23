@@ -11,62 +11,68 @@ import java.util.Objects;
  * @author Usuario
  */
 public class Cancion {
-    private int codigo; // Declaración de la variable 'codigo' de tipo int y se establece como privada
-    private String titulo; // Declaración de la variable 'titulo' de tipo String y se establece como privada
-    private String letra; // Declaración de la variable 'letra' de tipo String y se establece como privada
-    private double tiempoEnMinutos; // Declaración de la variable 'tiempoEnMinutos' de tipo double y se establece como privada
-
-    public Cancion() { // Constructor por defecto
+    private int codigo; // Código numérico único de la canción
+    private String titulo; // Título de la canción
+    private String letra; // Letra de la canción
+    private double tiempoEnMinutos; // Duración de la canción en minutos
+    
+    
+  // Constructor vacío  
+    public Cancion() { 
     }
-
-    public Cancion(int codigo, String titulo, String letra, double tiempoEnMinutos) { // Constructor con parámetros
-        this.codigo = codigo; // Inicialización de la variable 'codigo' con el valor del parámetro 'codigo'
-        this.titulo = titulo; // Inicialización de la variable 'titulo' con el valor del parámetro 'titulo'
-        this.letra = letra; // Inicialización de la variable 'letra' con el valor del parámetro 'letra'
-        this.tiempoEnMinutos = tiempoEnMinutos; // Inicialización de la variable 'tiempoEnMinutos' con el valor del parámetro 'tiempoEnMinutos'
+    
+  // Constructor con parámetros para inicializar todos los atributos 
+    public Cancion(int codigo, String titulo, String letra, double tiempoEnMinutos) { 
+        this.codigo = codigo; 
+        this.titulo = titulo; 
+        this.letra = letra; 
+        this.tiempoEnMinutos = tiempoEnMinutos; 
     }
-
-    public int getCodigo() { // Método getter que devuelve el valor de la variable 'codigo'
+    
+  // Métodos "get" y "set" para cada atributo
+    
+    public int getCodigo() { 
         return codigo;
     }
 
-    public void setCodigo(int codigo) { // Método setter que establece el valor de la variable 'codigo' con el valor del parámetro 'codigo'
+    public void setCodigo(int codigo) { 
         this.codigo = codigo;
     }
 
-    public String getTitulo() { // Método getter que devuelve el valor de la variable 'titulo'
+    public String getTitulo() { 
         return titulo;
     }
 
-    public void setTitulo(String titulo) { // Método setter que establece el valor de la variable 'titulo' con el valor del parámetro 'titulo'
+    public void setTitulo(String titulo) { 
         this.titulo = titulo;
     }
 
-    public String getLetra() { // Método getter que devuelve el valor de la variable 'letra'
+    public String getLetra() { 
         return letra;
     }
 
-    public void setLetra(String letra) { // Método setter que establece el valor de la variable 'letra' con el valor del parámetro 'letra'
+    public void setLetra(String letra) { 
         this.letra = letra;
     }
 
-    public double getTiempoEnMinutos() { // Método getter que devuelve el valor de la variable 'tiempoEnMinutos'
+    public double getTiempoEnMinutos() {
         return tiempoEnMinutos;
     }
 
-    public void setTiempoEnMinutos(double tiempoEnMinutos) { // Método setter que establece el valor de la variable 'tiempoEnMinutos' con el valor del parámetro 'tiempoEnMinutos'
+    public void setTiempoEnMinutos(double tiempoEnMinutos) { 
         this.tiempoEnMinutos = tiempoEnMinutos;
     }
 
     @Override
-    public int hashCode() { // Método que devuelve un número entero generado a partir de la variable 'titulo'
+    public int hashCode() { 
         int hash = 3;
         hash = 29 * hash + Objects.hashCode(this.titulo);
         return hash;
     }
-
+    
+// Método para calcular el código hash del objeto basado en el título
     @Override
-    public boolean equals(Object obj) { // Método que compara si dos objetos son iguales
+    public boolean equals(Object obj) { 
         if (this == obj) {
             return true;
         }
@@ -79,9 +85,9 @@ public class Cancion {
         final Cancion other = (Cancion) obj;
         return Objects.equals(this.titulo, other.titulo);
     }
-
+ // Método para comparar si dos objetos Cancion son iguales basado en el título
     @Override
-    public String toString() { // Override del método toString para mostrar información del objeto Cancion en forma de string
+    public String toString() {
         return "\nCancion: " + "\nCodigo: " + codigo + "\nTitulo=" + titulo + "\nLetra=" + letra + "\nTiempoEnMinutos=" + tiempoEnMinutos + '}';
     }  
 }
