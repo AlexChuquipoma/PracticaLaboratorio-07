@@ -24,13 +24,14 @@ public class CantanteDao implements ICantanteDao {
     private String ruta;
    
     private RandomAccessFile archivoEscritura;
+    //private List<Cantante> listaCantantes;
     private RandomAccessFile archivoLectura;
-    private RandomAccessFile archivito;
+    //private RandomAccessFile archivito;
 
     public CantanteDao() {
-        
+        //listaCantantes = new ArrayList<>();
         this.ruta = "src\\main\\resources\\rutas\\cantante.djj";
-      
+        //this.ruta = "C:\\Users\\Usuario\\Desktop\\Carpeta7\\cantante.djj";
         
         
     }
@@ -97,7 +98,7 @@ public class CantanteDao implements ICantanteDao {
                     int numeroDeGiras = archivoLectura.readInt();
                     double salario = archivoLectura.readDouble();
                     Cantante cantante = new Cantante(nombreArtistico, generoMusical, numeroDeSencillos, numeroDeConciertos, numeroDeGiras, codigo, nombre, apellido, edad, nacionalidad,salario);
-                    System.out.println(salario);
+                    //System.out.println(salario);
                     for (int j = 0; j < 10; j++) {
                         int codigoCan = archivoLectura.readInt();
                         String nombreCAn = archivoLectura.readUTF();
@@ -133,7 +134,7 @@ public class CantanteDao implements ICantanteDao {
                 archivo.seek(i * bytesPorCantante);
                 int codigoCantante = archivo.readInt();
                 if (codigoCantante == cantante.getCodigo()) {
-                    //archivo.writeInt(cantante.getCodigo());
+                    
                     archivo.writeUTF(cantante.getNombre());
                     archivo.writeUTF(cantante.getApellido());
                     archivo.writeInt(cantante.getEdad());
@@ -145,7 +146,7 @@ public class CantanteDao implements ICantanteDao {
                     archivo.writeInt(cantante.getNumeroDeGiras());
                     archivo.writeDouble(cantante.getSalario());
                     List<Disco> listaDisc = cantante.getDiscos();
-                    System.out.println("Lista del update = "+ listaDisc.toString());
+                    
                     for (int j = 0; i < listaDisc.size(); j++) {
                         archivo.writeInt(listaDisc.get(j).getCodigo());
                         archivo.writeUTF(listaDisc.get(j).getNombre());
@@ -157,42 +158,40 @@ public class CantanteDao implements ICantanteDao {
             }
         }archivo.close();
 
-        //System.out.println("No ser encontr cantante");
+        
         } catch (FileNotFoundException e) {
             System.out.println("Ruta no encontrada");
-            } catch (IOException e1) {
-                System.out.println("Error de Lectura");
-            } catch (Exception e) {
-                System.out.println("Error General");
+        } catch (IOException e1) {
+            System.out.println("Error de Lectura");
+        } catch (Exception e) {
+            System.out.println("Error General");
         }
     }
 
     @Override
     public void delete(Cantante cantante) {
         try{
-            archivito = new RandomAccessFile(ruta, "rw");
+            RandomAccessFile archivito = new RandomAccessFile(ruta, "rw");
 
             int bytesPorCantante = 363;
             long numCantantes = archivito.length() / bytesPorCantante;
-
+            
             for (int i = 0; i < numCantantes; i++) {
                 archivito.seek(i * bytesPorCantante);
                 int codigoCantante = archivito.readInt();
-                
                 if (codigoCantante == cantante.getCodigo()) {
-                    long posicionActual = i * bytesPorCantante;
-                    long posicionSiguiente = (i + 1) * bytesPorCantante;
-                    long bytesRestantes = archivito.length() - posicionSiguiente;
-
-                    byte[] buffer = new byte[(int) bytesRestantes];
-                    archivito.read(buffer);
-
-                    archivito.seek(posicionActual);
-                    archivito.write(buffer);
-                    archivito.setLength(archivito.length() - bytesPorCantante);
-                    archivito.close();
-                    return; 
+                    
+                    for (int j = i + 1; j < numCantantes; j++) {
+                        archivito.seek( j * bytesPorCantante);
+                        byte[] datos = new byte[bytesPorCantante];
+                        archivito.readFully(datos);
+                        archivito.seek((j - 1) * bytesPorCantante);
+                        archivito.write(datos);
+                    }
+                    archivito.setLength((numCantantes-1)*bytesPorCantante);
+                    break;
                 }
+                
             }
             archivito.close();
             System.out.println("No Existe el codgo");
@@ -203,6 +202,7 @@ public class CantanteDao implements ICantanteDao {
         } catch (Exception e) {
             System.out.println("Error General");
         }
+        
     }
     
     @Override
@@ -251,6 +251,7 @@ public class CantanteDao implements ICantanteDao {
                 cantante.agregarDisco(dis);
             }
             listaCantantes.add(cantante);
+            //System.out.println(listaCantantes+ "Comoooooo "+ i);
         }
 
         archivoLectura.close();
@@ -266,73 +267,3 @@ public class CantanteDao implements ICantanteDao {
     }
     
 }
-/* 
-public class CantanteDao implements ICantanteDao {
-    
-    private List<Cantante> listaCantantes;
-
-    public CantanteDao() {
-        listaCantantes = new ArrayList<>();
-    }
-    
-    
-    @Override
-    public void create(Cantante cantante) {
-        listaCantantes.add(cantante);
-    }
-
-    @Override
-    public Cantante read(int id) {
-        for (Cantante cantante : listaCantantes) {
-            if (cantante.getCodigo()==(id)) {
-                return cantante;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public void update(Cantante cantante) {
-        for (int i = 0; i < listaCantantes.size(); i++) {
-            Cantante c = listaCantantes.get(i);
-            if (c.getCodigo() == cantante.getCodigo()) {
-                listaCantantes.set(i, cantante);
-                break;
-            }
-        }
-    }
-
-    @Override
-    public void delete(Cantante cantante) {
-        Iterator<Cantante> it = listaCantantes.iterator();
-        while (it.hasNext()) {
-            Cantante d = it.next();
-            if (d.getCodigo()== cantante.getCodigo()) {
-                it.remove();
-                break;
-            }
-        }
-    }
-    
-    @Override
-    public Cantante buscarPorNombreDeDisco(String valor) {
-        for(Cantante cantante : listaCantantes){
-            if(cantante instanceof Cantante){
-                for(Disco disco : cantante.getDiscos()){
-                    if(disco.getNombre().equals(valor)){
-                        return cantante;
-                    }
-                }
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public List<Cantante> findAll() {
-        return listaCantantes;
-    }
-    
-}
-
-*/ 
