@@ -31,12 +31,10 @@ import ec.edu.ups.practica.cantante.compositor.interfaces.vista.compositor.Busca
 import ec.edu.ups.practica.cantante.compositor.interfaces.vista.compositor.CrearCompositor;
 import ec.edu.ups.practica.cantante.compositor.interfaces.vista.compositor.EliminarCompositor;
 import ec.edu.ups.practica.cantante.compositor.interfaces.vista.compositor.ListarCompositor;
-import java.awt.Graphics;
-import java.awt.Image;
+
 import java.util.Locale;
 import java.util.ResourceBundle;
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
+
 
 /**
  *
@@ -93,9 +91,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         //Internacionalizacion
         localizacion = Locale.getDefault();
         mensajes = ResourceBundle.getBundle("mensajes.mensaje", localizacion);
-        cambiarIdioma();
+      //  cambiarIdioma();
     } 
-    
+    /* 
     private void cambiarIdioma(){
         mensajes = ResourceBundle.getBundle("mensajes.mensaje", localizacion);
         menuCantante.setText(mensajes.getString("menu.cantante"));
@@ -213,7 +211,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             listarCompositor.cambiarIdioma(localizacion);
         }
     }
-
+*/ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -633,13 +631,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemAgregarDiscoActionPerformed
 
     private void menuItemEspanolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEspanolActionPerformed
-        localizacion = new Locale("es", "EC");
-        cambiarIdioma();
+    //    localizacion = new Locale("es", "EC");
+   //     cambiarIdioma();
     }//GEN-LAST:event_menuItemEspanolActionPerformed
 
     private void menuItemInglesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemInglesActionPerformed
-        localizacion = new Locale("en", "US");
-        cambiarIdioma();
+    //    localizacion = new Locale("en", "US");
+    //    cambiarIdioma();
     }//GEN-LAST:event_menuItemInglesActionPerformed
 
     private void menuItemActualizarDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemActualizarDiscoActionPerformed
@@ -719,8 +717,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemBuscarPorTituloActionPerformed
 
     private void menuItemFrancesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemFrancesActionPerformed
-        localizacion = new Locale("fr", "FR");
-        this.cambiarIdioma();
+  //      localizacion = new Locale("fr", "FR");
+   //     this.cambiarIdioma();
     }//GEN-LAST:event_menuItemFrancesActionPerformed
 
     private void menuItemSalirMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSalirMenuActionPerformed
